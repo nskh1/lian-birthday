@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lian's Birthday Celebration</title>
+    <title>Happy Birthday!</title>
     <style>
         * {
             margin: 0;
@@ -13,208 +13,168 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated background elements */
-        .background-shapes {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape1 { width: 200px; height: 200px; background: #fff; border-radius: 50%; top: 10%; left: 10%; animation-delay: 0s; }
-        .shape2 { width: 150px; height: 150px; background: #fff; border-radius: 50%; bottom: 20%; right: 10%; animation-delay: 2s; }
-        .shape3 { width: 100px; height: 100px; background: #fff; border-radius: 50%; top: 50%; right: 5%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-30px) translateX(20px); }
-        }
-
-        /* Header */
-        header {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Main container */
-        .container {
-            position: relative;
-            z-index: 5;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Grid layout for feature cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Feature cards */
-        .card {
-            position: relative;
-            height: 280px;
-            cursor: pointer;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            animation: slideUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-        .card:nth-child(7) { animation-delay: 0.7s; }
-        .card:nth-child(8) { animation-delay: 0.8s; }
-        .card:nth-child(9) { animation-delay: 0.9s; }
-        .card:nth-child(10) { animation-delay: 1s; }
-        .card:nth-child(11) { animation-delay: 1.1s; }
-        .card:nth-child(12) { animation-delay: 1.2s; }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px;
-            text-align: center;
-            color: white;
-            overflow: hidden;
+            padding: 20px;
+            overflow-x: hidden;
         }
 
-        .card-content::before {
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; border-color: #FF6B6B; }
+        .card:nth-child(2) { animation-delay: 0.2s; border-color: #4ECDC4; }
+        .card:nth-child(3) { animation-delay: 0.3s; border-color: #FFE66D; }
+        .card:nth-child(4) { animation-delay: 0.4s; border-color: #95E1D3; }
+        .card:nth-child(5) { animation-delay: 0.5s; border-color: #F38181; }
+        .card:nth-child(6) { animation-delay: 0.6s; border-color: #AA96DA; }
+        .card:nth-child(7) { animation-delay: 0.7s; border-color: #FCBAD3; }
+        .card:nth-child(8) { animation-delay: 0.8s; border-color: #A8E6CF; }
+        .card:nth-child(9) { animation-delay: 0.9s; border-color: #FFD3B6; }
+        .card:nth-child(10) { animation-delay: 1s; border-color: #FFAAA5; }
+        .card:nth-child(11) { animation-delay: 1.1s; border-color: #FF8B94; }
+        .card:nth-child(12) { animation-delay: 1.2s; border-color: #A8D8EA; }
+
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            z-index: -1;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
-        /* Gradient backgrounds for each card */
-        .card:nth-child(1) .card-content::before { background: linear-gradient(135deg, #FF6B6B 0%, #FF8E72 100%); }
-        .card:nth-child(2) .card-content::before { background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); }
-        .card:nth-child(3) .card-content::before { background: linear-gradient(135deg, #FFB400 0%, #FF7E5F 100%); }
-        .card:nth-child(4) .card-content::before { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card:nth-child(5) .card-content::before { background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 100%); }
-        .card:nth-child(6) .card-content::before { background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); }
-        .card:nth-child(7) .card-content::before { background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 100%); }
-        .card:nth-child(8) .card-content::before { background: linear-gradient(135deg, #FFA751 0%, #FFE259 100%); }
-        .card:nth-child(9) .card-content::before { background: linear-gradient(135deg, #764BA2 0%, #F093FB 100%); }
-        .card:nth-child(10) .card-content::before { background: linear-gradient(135deg, #3EC1D3 0%, #00BFAA 100%); }
-        .card:nth-child(11) .card-content::before { background: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%); }
-        .card:nth-child(12) .card-content::before { background: linear-gradient(135deg, #F6D365 0%, #FDA085 100%); }
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
 
         .card-icon {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 15px;
-            display: block;
-            animation: bounce 2s ease-in-out infinite;
+            display: inline-block;
+            animation: spin 3s linear infinite;
         }
 
-        .card:nth-child(1) .card-icon { animation-delay: 0s; }
-        .card:nth-child(2) .card-icon { animation-delay: 0.1s; }
-        .card:nth-child(3) .card-icon { animation-delay: 0.2s; }
-        .card:nth-child(4) .card-icon { animation-delay: 0.3s; }
-        .card:nth-child(5) .card-icon { animation-delay: 0.4s; }
-        .card:nth-child(6) .card-icon { animation-delay: 0.5s; }
-        .card:nth-child(7) .card-icon { animation-delay: 0.6s; }
-        .card:nth-child(8) .card-icon { animation-delay: 0.7s; }
-        .card:nth-child(9) .card-icon { animation-delay: 0.8s; }
-        .card:nth-child(10) .card-icon { animation-delay: 0.9s; }
-        .card:nth-child(11) .card-icon { animation-delay: 1s; }
-        .card:nth-child(12) .card-icon { animation-delay: 1.1s; }
+        .card:nth-child(2) .card-icon,
+        .card:nth-child(4) .card-icon,
+        .card:nth-child(6) .card-icon,
+        .card:nth-child(8) .card-icon,
+        .card:nth-child(10) .card-icon,
+        .card:nth-child(12) .card-icon {
+            animation: bounce 2s infinite;
+        }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .card-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
         }
 
-        .card-desc {
-            font-size: 0.9rem;
-            opacity: 0.95;
-            line-height: 1.4;
+        .card-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        /* Modal styles */
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -223,9 +183,15 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
             animation: fadeIn 0.3s ease;
             overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         @keyframes fadeIn {
@@ -233,24 +199,19 @@
             to { opacity: 1; }
         }
 
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .modal-content {
-            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            background: white;
             padding: 40px;
             border-radius: 20px;
-            max-width: 500px;
             width: 90%;
-            position: relative;
-            animation: slideInUp 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        @keyframes slideInUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
                 transform: translateY(50px);
@@ -266,51 +227,36 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 3px solid #f0f0f0;
             padding-bottom: 15px;
         }
 
         .modal-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .modal-title-icon {
-            font-size: 2rem;
-        }
-
-        .close-btn {
             font-size: 2rem;
             font-weight: bold;
-            color: #999;
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: color 0.3s ease;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #333;
         }
 
-        .close-btn:hover {
-            color: #333;
+        .close {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #000;
         }
 
         .modal-body {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
-        .modal-gallery {
+        .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
@@ -322,659 +268,615 @@
             aspect-ratio: 1;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: scaleIn 0.4s ease;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        .gallery-item img {
+        .gallery-placeholder {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-footer {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
         }
 
-        .btn {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            pointer-events: none;
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-
-        /* Footer */
-        footer {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 40px 20px;
-            color: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        /* Responsive design */
         @media (max-width: 768px) {
-            h1 {
+            .title {
                 font-size: 2.5rem;
             }
 
             .subtitle {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
-            .grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-            }
-
-            .card {
-                height: 240px;
-            }
-
-            .card-icon {
-                font-size: 2.5rem;
-            }
-
-            .card-title {
-                font-size: 1.1rem;
-            }
-
-            .card-desc {
-                font-size: 0.85rem;
-            }
-
-            .modal-content {
-                padding: 30px 20px;
-            }
-
-            .modal-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 0.95rem;
-            }
-
-            header {
-                padding: 20px 10px;
-            }
-
-            .container {
-                padding: 20px 10px;
-            }
-
-            .grid {
+            .cards-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
 
-            .card {
-                height: 200px;
-            }
-
-            .card-icon {
-                font-size: 2rem;
-            }
-
-            .card-title {
-                font-size: 1rem;
-            }
-
-            .card-desc {
-                font-size: 0.8rem;
-            }
-
             .modal-content {
                 width: 95%;
-                padding: 20px;
+                padding: 25px;
             }
         }
 
-        /* Particle effect */
-        .particles {
+        .floating-hearts {
             position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
+            font-size: 2rem;
+            animation: float 6s ease-in infinite;
             pointer-events: none;
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: particleFloat 20s infinite linear;
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="particles"></div>
-    
-    <div class="background-shapes">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
-    </div>
-
-    <header>
-        <h1>🎉 Happy Birthday Lian! 🎂</h1>
-        <p class="subtitle">Celebrate this special day with joy and wonderful moments</p>
-    </header>
-
     <div class="container">
-        <div class="grid">
-            <!-- Card 1 -->
-            <div class="card" onclick="openModal('modal1')">
-                <div class="card-content">
-                    <span class="card-icon">🎈</span>
-                    <h2 class="card-title">Festive Balloons</h2>
-                    <p class="card-desc">Colorful celebrations</p>
-                </div>
+        <div class="header">
+            <h1 class="title">🎉 Happy Birthday! 🎉</h1>
+            <p class="subtitle">Click on any card to explore the celebration!</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Balloons Card -->
+            <div class="card" data-modal="balloons-modal">
+                <div class="card-icon">🎈</div>
+                <h2 class="card-title">Balloons</h2>
+                <p class="card-description">Colorful balloons fill the air with joy and celebration!</p>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card" onclick="openModal('modal2')">
-                <div class="card-content">
-                    <span class="card-icon">🎁</span>
-                    <h2 class="card-title">Special Gifts</h2>
-                    <p class="card-desc">Wonderful surprises</p>
-                </div>
+            <!-- Gifts Card -->
+            <div class="card" data-modal="gifts-modal">
+                <div class="card-icon">🎁</div>
+                <h2 class="card-title">Gifts</h2>
+                <p class="card-description">Wonderful surprises wrapped with love and care.</p>
             </div>
 
-            <!-- Card 3 -->
-            <div class="card" onclick="openModal('modal3')">
-                <div class="card-content">
-                    <span class="card-icon">🎂</span>
-                    <h2 class="card-title">Birthday Cake</h2>
-                    <p class="card-desc">Sweet moments ahead</p>
-                </div>
+            <!-- Cake Card -->
+            <div class="card" data-modal="cake-modal">
+                <div class="card-icon">🎂</div>
+                <h2 class="card-title">Cake</h2>
+                <p class="card-description">Delicious cake with wishes and sweet moments.</p>
             </div>
 
-            <!-- Card 4 -->
-            <div class="card" onclick="openModal('modal4')">
-                <div class="card-content">
-                    <span class="card-icon">✨</span>
-                    <h2 class="card-title">Magic Moments</h2>
-                    <p class="card-desc">Sparkle and shine</p>
-                </div>
+            <!-- Magic Card -->
+            <div class="card" data-modal="magic-modal">
+                <div class="card-icon">✨</div>
+                <h2 class="card-title">Magic</h2>
+                <p class="card-description">Special moments that feel like pure magic!</p>
             </div>
 
-            <!-- Card 5 -->
-            <div class="card" onclick="openModal('modal5')">
-                <div class="card-content">
-                    <span class="card-icon">🌟</span>
-                    <h2 class="card-title">Star Wishes</h2>
-                    <p class="card-desc">Make a wish today</p>
-                </div>
+            <!-- Wishes Card -->
+            <div class="card" data-modal="wishes-modal">
+                <div class="card-icon">⭐</div>
+                <h2 class="card-title">Wishes</h2>
+                <p class="card-description">May all your dreams come true this year!</p>
             </div>
 
-            <!-- Card 6 -->
-            <div class="card" onclick="openModal('modal6')">
-                <div class="card-content">
-                    <span class="card-icon">💝</span>
-                    <h2 class="card-title">Heartfelt Love</h2>
-                    <p class="card-desc">From the bottom of hearts</p>
-                </div>
+            <!-- Love Card -->
+            <div class="card" data-modal="love-modal">
+                <div class="card-icon">💕</div>
+                <h2 class="card-title">Love</h2>
+                <p class="card-description">Surrounded by love from everyone special.</p>
             </div>
 
-            <!-- Card 7 -->
-            <div class="card" onclick="openModal('modal7')">
-                <div class="card-content">
-                    <span class="card-icon">🎊</span>
-                    <h2 class="card-title">Party Time</h2>
-                    <p class="card-desc">Let's celebrate together</p>
-                </div>
+            <!-- Party Card -->
+            <div class="card" data-modal="party-modal">
+                <div class="card-icon">🎊</div>
+                <h2 class="card-title">Party</h2>
+                <p class="card-description">Let's celebrate with music, dance, and fun!</p>
             </div>
 
-            <!-- Card 8 -->
-            <div class="card" onclick="openModal('modal8')">
-                <div class="card-content">
-                    <span class="card-icon">🎵</span>
-                    <h2 class="card-title">Happy Songs</h2>
-                    <p class="card-desc">Music and joy</p>
-                </div>
+            <!-- Songs Card -->
+            <div class="card" data-modal="songs-modal">
+                <div class="card-icon">🎵</div>
+                <h2 class="card-title">Songs</h2>
+                <p class="card-description">Beautiful melodies to celebrate your special day.</p>
             </div>
 
-            <!-- Card 9 -->
-            <div class="card" onclick="openModal('modal9')">
-                <div class="card-content">
-                    <span class="card-icon">🌈</span>
-                    <h2 class="card-title">Rainbow Wishes</h2>
-                    <p class="card-desc">Colorful dreams</p>
-                </div>
+            <!-- Rainbow Card -->
+            <div class="card" data-modal="rainbow-modal">
+                <div class="card-icon">🌈</div>
+                <h2 class="card-title">Rainbow</h2>
+                <p class="card-description">A spectrum of colors and bright moments ahead.</p>
             </div>
 
-            <!-- Card 10 -->
-            <div class="card" onclick="openModal('modal10')">
-                <div class="card-content">
-                    <span class="card-icon">🎯</span>
-                    <h2 class="card-title">Goals & Dreams</h2>
-                    <p class="card-desc">Achieve your dreams</p>
-                </div>
+            <!-- Goals Card -->
+            <div class="card" data-modal="goals-modal">
+                <div class="card-icon">🎯</div>
+                <h2 class="card-title">Goals</h2>
+                <p class="card-description">Chase your dreams and achieve great things!</p>
             </div>
 
-            <!-- Card 11 -->
-            <div class="card" onclick="openModal('modal11')">
-                <div class="card-content">
-                    <span class="card-icon">🚀</span>
-                    <h2 class="card-title">New Adventures</h2>
-                    <p class="card-desc">Exciting journeys await</p>
-                </div>
+            <!-- Adventures Card -->
+            <div class="card" data-modal="adventures-modal">
+                <div class="card-icon">🚀</div>
+                <h2 class="card-title">Adventures</h2>
+                <p class="card-description">Exciting journeys and new experiences await!</p>
             </div>
 
-            <!-- Card 12 -->
-            <div class="card" onclick="openModal('modal12')">
-                <div class="card-content">
-                    <span class="card-icon">🏆</span>
-                    <h2 class="card-title">Champion Spirit</h2>
-                    <p class="card-desc">You are the best!</p>
-                </div>
+            <!-- Champion Card -->
+            <div class="card" data-modal="champion-modal">
+                <div class="card-icon">👑</div>
+                <h2 class="card-title">Champion</h2>
+                <p class="card-description">You're the champion of your own story!</p>
             </div>
         </div>
     </div>
 
     <!-- Modals -->
-    <!-- Modal 1 -->
-    <div id="modal1" class="modal">
+    <div id="balloons-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🎈</span>
-                    Festive Balloons
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal1')">×</button>
+                <h2 class="modal-title">🎈 Balloons</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🎈 Colorful balloons fill the air with joy and celebration! Each balloon represents a happy moment and cheerful memory. These vibrant decorations symbolize the fun and excitement of your special day!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFB400, #FF7E5F);"></div>
+                <p>Balloons symbolize the lightness and joy of your special day! Each balloon represents a happy memory and a moment of pure celebration. Float through the sky with endless possibilities and colorful dreams!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFB6B6);">🎈</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4ECDC4, #9FFBF0);">🎈</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFE66D, #FFED4E);">🎈</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #95E1D3, #F38181);">🎈</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal1')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2 -->
-    <div id="modal2" class="modal">
+    <div id="gifts-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🎁</span>
-                    Special Gifts
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal2')">×</button>
+                <h2 class="modal-title">🎁 Gifts</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🎁 Every gift carries love and thoughtfulness! These wonderful presents are wrapped with care and given with joy. Each one is a token of appreciation for being such an amazing person. Thank you for bringing happiness to everyone around you!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FA8BFF, #2BD2FF);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"></div>
+                <p>Every gift comes with a wish for your happiness! Wrapped with love and care, these presents represent the thoughtfulness of everyone who cares about you. Open your heart to receive all the blessings coming your way!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FF8787);">🎁</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎁</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎁</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🎁</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal2')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 3 -->
-    <div id="modal3" class="modal">
+    <div id="cake-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🎂</span>
-                    Birthday Cake
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal3')">×</button>
+                <h2 class="modal-title">🎂 Cake</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🎂 Make a wish and blow out the candles! This delicious birthday cake is made with love and decorated with care. The sweetness of the cake matches the sweetness of your personality. Every slice is filled with celebrations and good wishes!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFA751, #FFE259);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #764BA2, #F093FB);"></div>
+                <p>A delicious cake filled with sweetness and love! Make a wish, blow out the candles, and let your dreams come true. Each slice represents a moment of joy shared with the people you love most!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFE66D, #FFED4E);">🎂</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F38181, #AA96DA);">🎂</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FCBAD3, #A8E6CF);">🎂</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFD3B6, #FFAAA5);">🎂</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal3')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 4 -->
-    <div id="modal4" class="modal">
+    <div id="magic-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">✨</span>
-                    Magic Moments
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal4')">×</button>
+                <h2 class="modal-title">✨ Magic</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>✨ Every moment with you is magical! Your presence brings sparkle and light to the world. These special moments are filled with laughter, joy, and wonderful memories that will last forever. Thank you for being extraordinary!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #3EC1D3, #00BFAA);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FC466B, #3F5EFB);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                <p>Magic happens when you celebrate with loved ones! The sparkle in your eyes, the warmth in your heart, and the wonder of a new year - these are the ingredients of true magic. Believe in the extraordinary!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">✨</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #f093fb, #f5576c);">✨</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">✨</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">✨</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal4')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 5 -->
-    <div id="modal5" class="modal">
+    <div id="wishes-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🌟</span>
-                    Star Wishes
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal5')">×</button>
+                <h2 class="modal-title">⭐ Wishes</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🌟 Upon the stars, we make our wishes come true! Your birthday is a perfect time to dream big and reach for the stars. We wish you endless happiness, good health, success in all your endeavors, and a year filled with amazing surprises!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFB400, #FF7E5F);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+                <p>Upon a wish star, all dreams can come true! This year brings new opportunities, growth, and endless possibilities. Wish for health, happiness, success, and love - and work to make them all a reality!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFE66D, #FFAA44);">⭐</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFAA55);">⭐</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">⭐</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">⭐</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal5')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 6 -->
-    <div id="modal6" class="modal">
+    <div id="love-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">💝</span>
-                    Heartfelt Love
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal6')">×</button>
+                <h2 class="modal-title">💕 Love</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>💝 This day is a celebration of you and the love everyone has for you! Your kindness, warmth, and genuine nature touch the hearts of those around you. On your birthday, we want you to know how much you mean to us. Happy Birthday, dear Lian!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FA8BFF, #2BD2FF);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"></div>
+                <p>You are surrounded by endless love from family, friends, and everyone who cares about you! Love is the greatest gift - it lifts you up, supports your dreams, and makes every moment meaningful. Feel the warmth of love today and always!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFB6B6);">💕</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F38181, #AA96DA);">💕</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FCBAD3, #FF8B94);">💕</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B9D, #FFC06C);">💕</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal6')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 7 -->
-    <div id="modal7" class="modal">
+    <div id="party-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🎊</span>
-                    Party Time
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal7')">×</button>
+                <h2 class="modal-title">🎊 Party</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🎊 It's time to celebrate! Friends and family gather to make this day unforgettable. Let's dance, laugh, and create memories together. This is your moment to shine and be celebrated for the amazing person you are. Let the party begin!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFA751, #FFE259);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #764BA2, #F093FB);"></div>
+                <p>Let's party like there's no tomorrow! Dance, laugh, sing, and enjoy every moment! The party is more fun when you're surrounded by people you love. Make memories, create laughter, and celebrate life to the fullest!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎊</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎊</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🎊</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🎊</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal7')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 8 -->
-    <div id="modal8" class="modal">
+    <div id="songs-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🎵</span>
-                    Happy Songs
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal8')">×</button>
+                <h2 class="modal-title">🎵 Songs</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🎵 Let's sing happy birthday at the top of our voices! Music fills the air with joy and celebration. Every note is a reminder of the happiness you bring to our lives. Dance, celebrate, and enjoy every beat of this wonderful day!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #3EC1D3, #00BFAA);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FC466B, #3F5EFB);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                <p>Music fills the air with joy and celebration! Every song tells a story of happiness, triumph, and beautiful moments. Let the melodies inspire you and carry you through the year with positivity and rhythm!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎵</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎵</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🎵</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🎵</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal8')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 9 -->
-    <div id="modal9" class="modal">
+    <div id="rainbow-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🌈</span>
-                    Rainbow Wishes
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal9')">×</button>
+                <h2 class="modal-title">🌈 Rainbow</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🌈 After every storm comes a rainbow of hope and new beginnings! We wish you a year as colorful and beautiful as a rainbow. May your path be filled with vibrant experiences, new friendships, and countless moments of pure happiness and success!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFB400, #FF7E5F);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+                <p>A rainbow of colors represents the diversity and beauty of life! Each color brings its own energy and beauty. This year will be filled with all the colors of the spectrum - vibrant, beautiful, and full of wonder!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);">🌈</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">🌈</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">🌈</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🌈</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal9')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 10 -->
-    <div id="modal10" class="modal">
+    <div id="goals-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🎯</span>
-                    Goals & Dreams
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal10')">×</button>
+                <h2 class="modal-title">🎯 Goals</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🎯 Your birthday is a milestone in your journey! This is the perfect time to reflect on your achievements and plan new goals. Whatever dreams you have, we believe in you and your ability to achieve them. Keep reaching for the stars and never stop dreaming!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FA8BFF, #2BD2FF);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"></div>
+                <p>This year, aim high and chase your dreams with passion! Every goal is achievable with determination, focus, and belief in yourself. Whether big or small, each goal brings you closer to becoming the best version of yourself!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">🎯</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎯</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🎯</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎯</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal10')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 11 -->
-    <div id="modal11" class="modal">
+    <div id="adventures-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🚀</span>
-                    New Adventures
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal11')">×</button>
+                <h2 class="modal-title">🚀 Adventures</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🚀 Another year older means new adventures await! Life is an exciting journey, and this year will bring opportunities for growth, learning, and unforgettable experiences. Embrace new challenges and make the most of every moment. The best is yet to come!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFA751, #FFE259);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #764BA2, #F093FB);"></div>
+                <p>Adventure awaits around every corner! Explore new places, meet new people, and embrace new experiences with open arms. Life is an adventure - make it thrilling, memorable, and absolutely unforgettable!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🚀</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🚀</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🚀</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🚀</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal11')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 12 -->
-    <div id="modal12" class="modal">
+    <div id="champion-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">
-                    <span class="modal-title-icon">🏆</span>
-                    Champion Spirit
-                </h2>
-                <button class="close-btn" onclick="closeModal('modal12')">×</button>
+                <h2 class="modal-title">👑 Champion</h2>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>🏆 You are a champion in every way! Your determination, kindness, and strength inspire everyone around you. This year, celebrate your victories and embrace new challenges with the same winning spirit. You are truly one of a kind, and the world is a better place because you're in it!</p>
-                <div class="modal-gallery">
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #3EC1D3, #00BFAA);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #FC466B, #3F5EFB);"></div>
-                    <div class="gallery-item" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                <p>You are a champion in your own right! Every challenge you've overcome, every goal you've achieved, and every person you've helped makes you a true winner. Wear your crown proudly and celebrate your victories!</p>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFD700, #FFA500);">👑</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">👑</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">👑</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">👑</div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('modal12')">Close</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p><strong>Happy Birthday, Lian! 🎉</strong></p>
-        <p>Wishing you a day filled with joy, love, and wonderful surprises!</p>
-        <p>May this year bring you happiness and success in everything you do.</p>
-    </footer>
 
     <script>
-        // Modal functions
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
+        // Get all modal elements
+        const modals = document.querySelectorAll('.modal');
+        const cards = document.querySelectorAll('.card');
+        const closeButtons = document.querySelectorAll('.close');
 
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
+        // Open modal when card is clicked
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
 
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('show');
+        // Close modal when close button is clicked
+        closeButtons.forEach(closeBtn => {
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const modal = this.closest('.modal');
+                modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-            }
-        }
+            });
+        });
+
+        // Close modal when clicking outside modal content
+        modals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
 
         // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const modals = document.querySelectorAll('.modal.show');
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
                 modals.forEach(modal => {
-                    modal.classList.remove('show');
+                    modal.classList.remove('active');
                     document.body.style.overflow = 'auto';
                 });
             }
         });
 
-        // Generate particles for animation
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            const particleCount = 30;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 10 + 20) + 's';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particlesContainer.appendChild(particle);
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8E6CF', '#FFD3B6', '#FFAAA5', '#FF8B94', '#A8D8EA'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.delay = Math.random() * 0.3 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 3300);
             }
         }
 
-        // Initialize particles on page load
-        window.addEventListener('load', createParticles);
+        // Create floating hearts periodically
+        function createFloatingHeart() {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
+            const heart = document.createElement('div');
+            heart.className = 'floating-hearts';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.animationDelay = '0s';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 6000);
+        }
 
-        // Smooth scroll behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+        // Create floating hearts every 2 seconds
+        setInterval(createFloatingHeart, 2000);
+
+        // Add initial floating hearts
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => createFloatingHeart(), i * 600);
+        }
     </script>
 </body>
 </html>
