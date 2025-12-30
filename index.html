@@ -1,1 +1,980 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lian's Birthday Celebration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background elements */
+        .background-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape1 { width: 200px; height: 200px; background: #fff; border-radius: 50%; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape2 { width: 150px; height: 150px; background: #fff; border-radius: 50%; bottom: 20%; right: 10%; animation-delay: 2s; }
+        .shape3 { width: 100px; height: 100px; background: #fff; border-radius: 50%; top: 50%; right: 5%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Grid layout for feature cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Feature cards */
+        .card {
+            position: relative;
+            height: 280px;
+            cursor: pointer;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(9) { animation-delay: 0.9s; }
+        .card:nth-child(10) { animation-delay: 1s; }
+        .card:nth-child(11) { animation-delay: 1.1s; }
+        .card:nth-child(12) { animation-delay: 1.2s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .card-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        /* Gradient backgrounds for each card */
+        .card:nth-child(1) .card-content::before { background: linear-gradient(135deg, #FF6B6B 0%, #FF8E72 100%); }
+        .card:nth-child(2) .card-content::before { background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); }
+        .card:nth-child(3) .card-content::before { background: linear-gradient(135deg, #FFB400 0%, #FF7E5F 100%); }
+        .card:nth-child(4) .card-content::before { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card:nth-child(5) .card-content::before { background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 100%); }
+        .card:nth-child(6) .card-content::before { background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); }
+        .card:nth-child(7) .card-content::before { background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 100%); }
+        .card:nth-child(8) .card-content::before { background: linear-gradient(135deg, #FFA751 0%, #FFE259 100%); }
+        .card:nth-child(9) .card-content::before { background: linear-gradient(135deg, #764BA2 0%, #F093FB 100%); }
+        .card:nth-child(10) .card-content::before { background: linear-gradient(135deg, #3EC1D3 0%, #00BFAA 100%); }
+        .card:nth-child(11) .card-content::before { background: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%); }
+        .card:nth-child(12) .card-content::before { background: linear-gradient(135deg, #F6D365 0%, #FDA085 100%); }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .card:nth-child(1) .card-icon { animation-delay: 0s; }
+        .card:nth-child(2) .card-icon { animation-delay: 0.1s; }
+        .card:nth-child(3) .card-icon { animation-delay: 0.2s; }
+        .card:nth-child(4) .card-icon { animation-delay: 0.3s; }
+        .card:nth-child(5) .card-icon { animation-delay: 0.4s; }
+        .card:nth-child(6) .card-icon { animation-delay: 0.5s; }
+        .card:nth-child(7) .card-icon { animation-delay: 0.6s; }
+        .card:nth-child(8) .card-icon { animation-delay: 0.7s; }
+        .card:nth-child(9) .card-icon { animation-delay: 0.8s; }
+        .card:nth-child(10) .card-icon { animation-delay: 0.9s; }
+        .card:nth-child(11) .card-icon { animation-delay: 1s; }
+        .card:nth-child(12) .card-icon { animation-delay: 1.1s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideInUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-title-icon {
+            font-size: 2rem;
+        }
+
+        .close-btn {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s ease;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .card {
+                height: 240px;
+            }
+
+            .card-icon {
+                font-size: 2.5rem;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .card-desc {
+                font-size: 0.85rem;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            header {
+                padding: 20px 10px;
+            }
+
+            .container {
+                padding: 20px 10px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card {
+                height: 200px;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .card-desc {
+                font-size: 0.8rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+
+        /* Particle effect */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+    
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <header>
+        <h1>🎉 Happy Birthday Lian! 🎂</h1>
+        <p class="subtitle">Celebrate this special day with joy and wonderful moments</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card" onclick="openModal('modal1')">
+                <div class="card-content">
+                    <span class="card-icon">🎈</span>
+                    <h2 class="card-title">Festive Balloons</h2>
+                    <p class="card-desc">Colorful celebrations</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" onclick="openModal('modal2')">
+                <div class="card-content">
+                    <span class="card-icon">🎁</span>
+                    <h2 class="card-title">Special Gifts</h2>
+                    <p class="card-desc">Wonderful surprises</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" onclick="openModal('modal3')">
+                <div class="card-content">
+                    <span class="card-icon">🎂</span>
+                    <h2 class="card-title">Birthday Cake</h2>
+                    <p class="card-desc">Sweet moments ahead</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" onclick="openModal('modal4')">
+                <div class="card-content">
+                    <span class="card-icon">✨</span>
+                    <h2 class="card-title">Magic Moments</h2>
+                    <p class="card-desc">Sparkle and shine</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card" onclick="openModal('modal5')">
+                <div class="card-content">
+                    <span class="card-icon">🌟</span>
+                    <h2 class="card-title">Star Wishes</h2>
+                    <p class="card-desc">Make a wish today</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card" onclick="openModal('modal6')">
+                <div class="card-content">
+                    <span class="card-icon">💝</span>
+                    <h2 class="card-title">Heartfelt Love</h2>
+                    <p class="card-desc">From the bottom of hearts</p>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card" onclick="openModal('modal7')">
+                <div class="card-content">
+                    <span class="card-icon">🎊</span>
+                    <h2 class="card-title">Party Time</h2>
+                    <p class="card-desc">Let's celebrate together</p>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card" onclick="openModal('modal8')">
+                <div class="card-content">
+                    <span class="card-icon">🎵</span>
+                    <h2 class="card-title">Happy Songs</h2>
+                    <p class="card-desc">Music and joy</p>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card" onclick="openModal('modal9')">
+                <div class="card-content">
+                    <span class="card-icon">🌈</span>
+                    <h2 class="card-title">Rainbow Wishes</h2>
+                    <p class="card-desc">Colorful dreams</p>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="card" onclick="openModal('modal10')">
+                <div class="card-content">
+                    <span class="card-icon">🎯</span>
+                    <h2 class="card-title">Goals & Dreams</h2>
+                    <p class="card-desc">Achieve your dreams</p>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="card" onclick="openModal('modal11')">
+                <div class="card-content">
+                    <span class="card-icon">🚀</span>
+                    <h2 class="card-title">New Adventures</h2>
+                    <p class="card-desc">Exciting journeys await</p>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="card" onclick="openModal('modal12')">
+                <div class="card-content">
+                    <span class="card-icon">🏆</span>
+                    <h2 class="card-title">Champion Spirit</h2>
+                    <p class="card-desc">You are the best!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🎈</span>
+                    Festive Balloons
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal1')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🎈 Colorful balloons fill the air with joy and celebration! Each balloon represents a happy moment and cheerful memory. These vibrant decorations symbolize the fun and excitement of your special day!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFB400, #FF7E5F);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal1')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🎁</span>
+                    Special Gifts
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal2')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🎁 Every gift carries love and thoughtfulness! These wonderful presents are wrapped with care and given with joy. Each one is a token of appreciation for being such an amazing person. Thank you for bringing happiness to everyone around you!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FA8BFF, #2BD2FF);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal2')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🎂</span>
+                    Birthday Cake
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal3')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🎂 Make a wish and blow out the candles! This delicious birthday cake is made with love and decorated with care. The sweetness of the cake matches the sweetness of your personality. Every slice is filled with celebrations and good wishes!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFA751, #FFE259);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #764BA2, #F093FB);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal3')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">✨</span>
+                    Magic Moments
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal4')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>✨ Every moment with you is magical! Your presence brings sparkle and light to the world. These special moments are filled with laughter, joy, and wonderful memories that will last forever. Thank you for being extraordinary!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #3EC1D3, #00BFAA);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FC466B, #3F5EFB);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal4')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🌟</span>
+                    Star Wishes
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal5')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🌟 Upon the stars, we make our wishes come true! Your birthday is a perfect time to dream big and reach for the stars. We wish you endless happiness, good health, success in all your endeavors, and a year filled with amazing surprises!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFB400, #FF7E5F);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal5')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">💝</span>
+                    Heartfelt Love
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal6')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>💝 This day is a celebration of you and the love everyone has for you! Your kindness, warmth, and genuine nature touch the hearts of those around you. On your birthday, we want you to know how much you mean to us. Happy Birthday, dear Lian!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FA8BFF, #2BD2FF);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal6')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 7 -->
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🎊</span>
+                    Party Time
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal7')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🎊 It's time to celebrate! Friends and family gather to make this day unforgettable. Let's dance, laugh, and create memories together. This is your moment to shine and be celebrated for the amazing person you are. Let the party begin!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFA751, #FFE259);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #764BA2, #F093FB);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal7')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8 -->
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🎵</span>
+                    Happy Songs
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal8')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🎵 Let's sing happy birthday at the top of our voices! Music fills the air with joy and celebration. Every note is a reminder of the happiness you bring to our lives. Dance, celebrate, and enjoy every beat of this wonderful day!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #3EC1D3, #00BFAA);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FC466B, #3F5EFB);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal8')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9 -->
+    <div id="modal9" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🌈</span>
+                    Rainbow Wishes
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal9')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🌈 After every storm comes a rainbow of hope and new beginnings! We wish you a year as colorful and beautiful as a rainbow. May your path be filled with vibrant experiences, new friendships, and countless moments of pure happiness and success!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFB400, #FF7E5F);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal9')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 10 -->
+    <div id="modal10" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🎯</span>
+                    Goals & Dreams
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal10')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🎯 Your birthday is a milestone in your journey! This is the perfect time to reflect on your achievements and plan new goals. Whatever dreams you have, we believe in you and your ability to achieve them. Keep reaching for the stars and never stop dreaming!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FA8BFF, #2BD2FF);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal10')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 11 -->
+    <div id="modal11" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🚀</span>
+                    New Adventures
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal11')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🚀 Another year older means new adventures await! Life is an exciting journey, and this year will bring opportunities for growth, learning, and unforgettable experiences. Embrace new challenges and make the most of every moment. The best is yet to come!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FFA751, #FFE259);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #764BA2, #F093FB);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal11')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 12 -->
+    <div id="modal12" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="modal-title-icon">🏆</span>
+                    Champion Spirit
+                </h2>
+                <button class="close-btn" onclick="closeModal('modal12')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>🏆 You are a champion in every way! Your determination, kindness, and strength inspire everyone around you. This year, celebrate your victories and embrace new challenges with the same winning spirit. You are truly one of a kind, and the world is a better place because you're in it!</p>
+                <div class="modal-gallery">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #3EC1D3, #00BFAA);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #FC466B, #3F5EFB);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('modal12')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Happy Birthday, Lian! 🎉</strong></p>
+        <p>Wishing you a day filled with joy, love, and wonderful surprises!</p>
+        <p>May this year bring you happiness and success in everything you do.</p>
+    </footer>
+
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal.show');
+                modals.forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // Generate particles for animation
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 20) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on page load
+        window.addEventListener('load', createParticles);
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
