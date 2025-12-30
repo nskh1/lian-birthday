@@ -446,3 +446,71 @@ window.gallery = {
   getPhotoCount: () => galleryState.photos.length,
   isPlaying: () => galleryState.isPlaying
 };
+
+const rocketData = [
+  {
+    title: "🚀 Adventure 1",
+    img: "https://picsum.photos/600/400?random=1",
+    desc: "Petualangan pertama dimulai dengan keberanian dan mimpi besar."
+  },
+  {
+    title: "🚀 Adventure 2",
+    img: "https://picsum.photos/600/400?random=2",
+    desc: "Menjelajah tempat baru dan bertemu pengalaman tak terlupakan."
+  },
+  {
+    title: "🚀 Adventure 3",
+    img: "https://picsum.photos/600/400?random=3",
+    desc: "Melampaui batas dan mencoba hal yang belum pernah dicoba."
+  },
+  {
+    title: "🚀 Adventure 4",
+    img: "https://picsum.photos/600/400?random=4",
+    desc: "Belajar dari perjalanan dan tumbuh menjadi versi terbaik."
+  },
+  {
+    title: "🚀 Adventure 5",
+    img: "https://picsum.photos/600/400?random=5",
+    desc: "Petualangan penuh tawa, cerita, dan kenangan."
+  },
+  {
+    title: "🚀 Adventure 6",
+    img: "https://picsum.photos/600/400?random=6",
+    desc: "Melihat dunia dari sudut pandang yang berbeda."
+  },
+  {
+    title: "🚀 Adventure 7",
+    img: "https://picsum.photos/600/400?random=7",
+    desc: "Akhir perjalanan yang membuka awal cerita baru."
+  }
+];
+
+const rocketItems = document.querySelectorAll(".rocket-item");
+const rocketModal = document.getElementById("rocket-modal");
+const rocketTitle = document.getElementById("rocket-title");
+const rocketImage = document.getElementById("rocket-image");
+const rocketDesc = document.getElementById("rocket-description");
+const rocketClose = document.querySelector(".rocket-close");
+
+rocketItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const index = item.dataset.rocket;
+    rocketTitle.textContent = rocketData[index].title;
+    rocketImage.src = rocketData[index].img;
+    rocketDesc.textContent = rocketData[index].desc;
+    rocketModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+rocketClose.addEventListener("click", () => {
+  rocketModal.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
+
+rocketModal.addEventListener("click", e => {
+  if (e.target === rocketModal) {
+    rocketModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+});
