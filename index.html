@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Happy Birthday Lian! 🎉</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Lian's Birthday Celebration</title>
     <style>
         * {
             margin: 0;
@@ -13,1024 +11,585 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #ff006e;
-            --secondary: #8338ec;
-            --accent: #3a86ff;
-            --light: #fb5607;
-            --dark-bg: #0a0e27;
-            --darker-bg: #050812;
-        }
-
         body {
-            background: linear-gradient(135deg, var(--darker-bg) 0%, #1a1f3a 50%, var(--dark-bg) 100%);
-            color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-        }
-
-        /* Particle System */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .particle::before {
-            content: '';
-            display: block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.8), rgba(131, 56, 236, 0.8));
-            box-shadow: 0 0 10px rgba(255, 0, 110, 0.6);
-        }
-
-        /* Confetti Styles */
-        .confetti {
-            position: fixed;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .confetti-piece {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
-            animation: confetti-fall 3s linear forwards;
-        }
-
-        @keyframes confetti-fall {
-            to {
-                transform: translateY(100vh) rotateZ(720deg);
-                opacity: 0;
-            }
-        }
-
-        /* Main Container */
-        .main-content {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
 
-        /* Header Section */
-        header {
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
             text-align: center;
-            padding: 40px 20px;
-            animation: slideInDown 1s ease-out;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent), var(--light));
-            background-clip: text;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textGlow 2s ease-in-out infinite;
-            margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: #b0b0b0;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
-        }
-
-        .emoji-balloon {
-            display: inline-block;
-            font-size: 2.5rem;
-            animation: float 3s ease-in-out infinite;
-            margin: 0 10px;
-        }
-
-        .emoji-balloon:nth-child(1) { animation-delay: 0s; }
-        .emoji-balloon:nth-child(2) { animation-delay: 0.3s; }
-        .emoji-balloon:nth-child(3) { animation-delay: 0.6s; }
-
-        /* Countdown Timer */
-        .countdown-section {
-            text-align: center;
-            margin: 40px 0;
-            animation: fadeInUp 1s ease-out 0.4s backwards;
+            background-clip: text;
         }
 
         .countdown {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .countdown h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .countdown-timer {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 15px;
-            max-width: 600px;
-            margin: 30px auto;
+            gap: 10px;
+            margin-top: 15px;
         }
 
-        .countdown-item {
-            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
-            border: 2px solid var(--secondary);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 32px rgba(131, 56, 236, 0.2);
-            transition: all 0.3s ease;
+        .time-unit {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
-        .countdown-item:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 40px rgba(131, 56, 236, 0.4);
-            border-color: var(--primary);
-        }
-
-        .countdown-value {
-            font-size: 2rem;
+        .time-unit-value {
+            font-size: 2em;
             font-weight: bold;
-            color: var(--accent);
-            animation: pulse 1s ease-in-out infinite;
+            display: block;
         }
 
-        .countdown-label {
-            font-size: 0.8rem;
-            color: #b0b0b0;
+        .time-unit-label {
+            font-size: 0.9em;
             margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* Gallery Section */
+        .features-section {
+            margin: 40px 0;
+        }
+
+        .features-section h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .features-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: #667eea;
+        }
+
+        .feature-emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-emoji {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .feature-name {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
         .gallery-section {
-            margin: 60px 0;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
+            margin: 40px 0;
         }
 
         .gallery-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 25px;
             position: relative;
-            display: inline-block;
-            width: 100%;
+            padding-bottom: 15px;
         }
 
-        .gallery-section h2::before,
         .gallery-section h2::after {
-            content: '✨';
-            margin: 0 15px;
-            animation: twinkle 1.5s ease-in-out infinite;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
 
-        .gallery {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
         }
 
         .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            aspect-ratio: 1;
-            cursor: pointer;
-            animation: zoomIn 0.8s ease-out backwards;
-        }
-
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 15px;
-            z-index: -1;
-            animation: gradientShift 3s ease-in-out infinite;
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: all 0.5s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.2) rotate(5deg);
-            filter: brightness(1.2);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(10, 14, 39, 0.95), transparent);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
-            transform: translateY(100%);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .gallery-emoji {
+            font-size: 3.5em;
             transition: transform 0.3s ease;
-            z-index: 2;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        .gallery-item:hover .gallery-emoji {
+            transform: scale(1.15);
         }
 
-        .gallery-title {
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .gallery-description {
-            font-size: 0.9rem;
-            color: #b0b0b0;
-        }
-
-        /* Music Player */
-        .music-player {
-            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(58, 134, 255, 0.1));
-            border: 2px solid var(--accent);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 40px 0;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.8s backwards;
-            box-shadow: 0 8px 32px rgba(58, 134, 255, 0.2);
-        }
-
-        .music-player h3 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .player-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn-control {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .btn-control:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
-        }
-
-        .btn-control:active {
-            transform: scale(0.95);
-        }
-
-        .volume-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .volume-control input[type="range"] {
-            flex: 1;
-            height: 6px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            border-radius: 3px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .volume-control input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
-        }
-
-        .volume-control input[type="range"]::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
-        }
-
-        .track-title {
-            text-align: center;
-            color: #b0b0b0;
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
-
-        /* Wish Form */
-        .wish-form-section {
-            max-width: 600px;
-            margin: 60px auto;
-            animation: fadeInUp 1s ease-out 1s backwards;
-        }
-
-        .wish-form-section h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .wish-form {
-            background: linear-gradient(135deg, rgba(131, 56, 236, 0.1), rgba(255, 0, 110, 0.1));
-            border: 2px solid var(--secondary);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 12px 40px rgba(131, 56, 236, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(131, 56, 236, 0.3);
-            border-radius: 10px;
-            color: #ffffff;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(255, 0, 110, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, var(--primary), var(--light));
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-submit::before {
-            content: '';
-            position: absolute;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
             top: 0;
-            left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
         }
 
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 0, 110, 0.4);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        .btn-submit:active {
-            transform: translateY(-1px);
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            position: relative;
         }
 
-        .wish-submitted {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
-            display: none;
-            animation: slideInUp 0.5s ease-out;
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .wishes-list {
-            margin-top: 40px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .wish-item {
-            background: rgba(131, 56, 236, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            animation: slideInLeft 0.5s ease-out;
-        }
-
-        .wish-name {
-            color: var(--primary);
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
             font-weight: bold;
-            margin-bottom: 5px;
+            color: #aaa;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
         }
 
-        .wish-text {
-            color: #b0b0b0;
-            font-size: 0.95rem;
+        .close-btn:hover {
+            color: #000;
+            background: #f0f0f0;
+            transform: scale(1.1);
         }
 
-        /* Animations */
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .modal-emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        @keyframes slideInUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .modal h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .modal p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.05em;
         }
 
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+            color: #999;
+            font-size: 0.95em;
         }
 
-        @keyframes textGlow {
-            0%, 100% {
-                text-shadow: 0 0 20px rgba(255, 0, 110, 0.3), 0 0 40px rgba(131, 56, 236, 0.2);
-            }
-            50% {
-                text-shadow: 0 0 40px rgba(255, 0, 110, 0.6), 0 0 80px rgba(131, 56, 236, 0.4);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-            75% {
-                transform: translateY(-5px) rotate(-5deg);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.5;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                filter: hue-rotate(0deg);
-            }
-            50% {
-                filter: hue-rotate(30deg);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(0) translateX(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-300px) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(131, 56, 236, 0.1);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--secondary), var(--accent));
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
             h1 {
-                font-size: 2rem;
+                font-size: 1.8em;
             }
 
-            .countdown {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
 
-            .countdown-value {
-                font-size: 1.5rem;
-            }
-
-            .gallery-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
+            .modal-content {
+                width: 95%;
+                padding: 30px;
+                margin: 20% auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Particles Container -->
-    <div class="particles" id="particlesContainer"></div>
+    <div class="container">
+        <h1>🎉 Lian's Birthday Celebration 🎂</h1>
+        
+        <div class="countdown">
+            <h2>Countdown to Dec 31, 2025 ✨</h2>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <span class="time-unit-value" id="days">0</span>
+                    <span class="time-unit-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-unit-value" id="hours">0</span>
+                    <span class="time-unit-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-unit-value" id="minutes">0</span>
+                    <span class="time-unit-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-unit-value" id="seconds">0</span>
+                    <span class="time-unit-label">Seconds</span>
+                </div>
+            </div>
+        </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Header -->
-        <header>
-            <div class="mb-4">
-                <span class="emoji-balloon">🎈</span>
-                <span class="emoji-balloon">🎉</span>
-                <span class="emoji-balloon">🎊</span>
+        <div class="features-section">
+            <h2>Fun Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" onclick="openModal('feature1')">
+                    <span class="feature-emoji">🎂</span>
+                    <div class="feature-name">Cake & Treats</div>
+                </div>
+                <div class="feature-card" onclick="openModal('feature2')">
+                    <span class="feature-emoji">🎉</span>
+                    <div class="feature-name">Party Time</div>
+                </div>
+                <div class="feature-card" onclick="openModal('feature3')">
+                    <span class="feature-emoji">🎁</span>
+                    <div class="feature-name">Gift Ideas</div>
+                </div>
+                <div class="feature-card" onclick="openModal('feature4')">
+                    <span class="feature-emoji">🌟</span>
+                    <div class="feature-name">Make a Wish</div>
+                </div>
+                <div class="feature-card" onclick="openModal('feature5')">
+                    <span class="feature-emoji">🎵</span>
+                    <div class="feature-name">Birthday Song</div>
+                </div>
+                <div class="feature-card" onclick="openModal('feature6')">
+                    <span class="feature-emoji">📸</span>
+                    <div class="feature-name">Photo Booth</div>
+                </div>
             </div>
-            <h1>Happy Birthday Lian!</h1>
-            <p class="subtitle">Wishing you a day filled with joy, laughter, and unforgettable moments! 🎂✨</p>
-            <button class="btn btn-warning mt-4" onclick="launchConfetti()" style="font-size: 1.2rem; padding: 12px 30px; border-radius: 25px; border: none; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                🎊 Celebrate! 🎊
-            </button>
-        </header>
+        </div>
 
-        <!-- Countdown Timer -->
-        <section class="countdown-section">
-            <h2>Time Until Celebration</h2>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-value" id="days">0</div>
-                    <div class="countdown-label">Days</div>
+        <div class="gallery-section">
+            <h2>Celebration Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('gallery1')">
+                    <span class="gallery-emoji">🎪</span>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="hours">0</div>
-                    <div class="countdown-label">Hours</div>
+                <div class="gallery-item" onclick="openModal('gallery2')">
+                    <span class="gallery-emoji">🎨</span>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="minutes">0</div>
-                    <div class="countdown-label">Minutes</div>
+                <div class="gallery-item" onclick="openModal('gallery3')">
+                    <span class="gallery-emoji">🎭</span>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="seconds">0</div>
-                    <div class="countdown-label">Seconds</div>
+                <div class="gallery-item" onclick="openModal('gallery4')">
+                    <span class="gallery-emoji">🎬</span>
+                </div>
+                <div class="gallery-item" onclick="openModal('gallery5')">
+                    <span class="gallery-emoji">🎸</span>
+                </div>
+                <div class="gallery-item" onclick="openModal('gallery6')">
+                    <span class="gallery-emoji">💃</span>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Photo Gallery -->
-        <section class="gallery-section">
-            <h2>Birthday Memories</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff006e, #fb5607); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-camera" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
-                    </div>
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Special Moments</div>
-                        <div class="gallery-description">Add your favorite memories</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8338ec, #3a86ff); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-star" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
-                    </div>
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Favorite Moments</div>
-                        <div class="gallery-description">Cherished memories</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a86ff, #ff006e); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-heart" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
-                    </div>
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Precious Moments</div>
-                        <div class="gallery-description">Beautiful memories together</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fb5607, #8338ec); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-smile" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
-                    </div>
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Happy Times</div>
-                        <div class="gallery-description">Smiles and laughter</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a86ff, #fb5607); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-sun" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
-                    </div>
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Bright Days</div>
-                        <div class="gallery-description">Shining moments</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff006e, #3a86ff); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-music" style="font-size: 3rem; color: rgba(255,255,255,0.8);"></i>
-                    </div>
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Good Vibes</div>
-                        <div class="gallery-description">Music and celebration</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Music Player -->
-        <section class="music-player">
-            <h3>🎵 Birthday Playlist 🎵</h3>
-            <div class="player-controls">
-                <button class="btn-control" onclick="previousTrack()" title="Previous">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button class="btn-control" id="playBtn" onclick="togglePlayPause()" title="Play/Pause">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="btn-control" onclick="nextTrack()" title="Next">
-                    <i class="fas fa-step-forward"></i>
-                </button>
-            </div>
-            <div class="volume-control">
-                <i class="fas fa-volume-down"></i>
-                <input type="range" id="volumeControl" min="0" max="100" value="70" onchange="setVolume(this.value)">
-                <i class="fas fa-volume-up"></i>
-            </div>
-            <div class="track-title">
-                <span id="trackName">🎂 Birthday Celebration Mix 🎂</span>
-            </div>
-        </section>
-
-        <!-- Wish Form -->
-        <section class="wish-form-section">
-            <h2>Send Your Birthday Wishes 💌</h2>
-            <div class="wish-form">
-                <form id="wishForm" onsubmit="submitWish(event)">
-                    <div class="form-group">
-                        <label for="wishName">Your Name</label>
-                        <input type="text" id="wishName" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="wishEmail">Your Email</label>
-                        <input type="email" id="wishEmail" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="wishMessage">Your Wish Message</label>
-                        <textarea id="wishMessage" placeholder="Write your heartfelt birthday wishes..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Send Wishes 🎉</button>
-                </form>
-                <div class="wish-submitted" id="wishSubmitted">
-                    <i class="fas fa-check-circle"></i> Thank you! Your wish has been sent! 💝
-                </div>
-                <div class="wishes-list" id="wishesList"></div>
-            </div>
-        </section>
+        <div class="footer">
+            <p>🎊 Have a wonderful celebration! 🎊</p>
+        </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <!-- Modals for Features -->
+    <div id="feature1" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('feature1')">&times;</button>
+            <span class="modal-emoji">🎂</span>
+            <h2>Cake & Treats</h2>
+            <p>Celebrate with delicious cakes, cupcakes, and sweet treats! Whether it's a classic chocolate cake, a colorful rainbow layer cake, or your favorite dessert, nothing beats birthday cake and ice cream. Don't forget the candles to make a wish! 🍰✨</p>
+        </div>
+    </div>
+
+    <div id="feature2" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('feature2')">&times;</button>
+            <span class="modal-emoji">🎉</span>
+            <h2>Party Time</h2>
+            <p>Let's celebrate with balloons, streamers, and confetti! Decorate the space with vibrant colors, organize fun games, and create unforgettable memories with friends and family. A birthday party is all about joy, laughter, and celebration! 🎈🎊</p>
+        </div>
+    </div>
+
+    <div id="feature3" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('feature3')">&times;</button>
+            <span class="modal-emoji">🎁</span>
+            <h2>Gift Ideas</h2>
+            <p>Looking for the perfect gift? Consider gifts that bring joy and memories - books, gadgets, experiences like concert tickets or adventure trips, personalized items, or something that matches their hobbies and interests. The best gift comes from the heart! 💝</p>
+        </div>
+    </div>
+
+    <div id="feature4" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('feature4')">&times;</button>
+            <span class="modal-emoji">🌟</span>
+            <h2>Make a Wish</h2>
+            <p>Birthday wishes have a special magic! Close your eyes, think of something meaningful and dear to your heart, and make a wish. Whether it's health, happiness, success, or adventure - may all your birthday wishes come true. Dream big! ✨🌠</p>
+        </div>
+    </div>
+
+    <div id="feature5" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('feature5')">&times;</button>
+            <span class="modal-emoji">🎵</span>
+            <h2>Birthday Song</h2>
+            <p>No birthday celebration is complete without singing "Happy Birthday!" Gather around, sing from the heart, and celebrate another year of life. It's a cherished tradition that brings smiles and creates heartwarming moments. Let's sing! 🎤🎶</p>
+        </div>
+    </div>
+
+    <div id="feature6" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('feature6')">&times;</button>
+            <span class="modal-emoji">📸</span>
+            <h2>Photo Booth</h2>
+            <p>Capture the memories! Set up a photo booth with fun props, backdrops, and filters. Strike poses, make funny faces, and create lasting memories. Share these special moments with loved ones - photos are the best way to preserve birthday joy! 📷✨</p>
+        </div>
+    </div>
+
+    <!-- Modals for Gallery Items -->
+    <div id="gallery1" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('gallery1')">&times;</button>
+            <span class="modal-emoji">🎪</span>
+            <h2>Carnival Fun</h2>
+            <p>Step right up for carnival-style birthday fun! Think colorful rides, fun games, prizes, and exciting entertainment. A carnival theme brings joy and excitement to any birthday celebration. Who doesn't love a good carnival? 🎠🎡</p>
+        </div>
+    </div>
+
+    <div id="gallery2" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('gallery2')">&times;</button>
+            <span class="modal-emoji">🎨</span>
+            <h2>Creative Art</h2>
+            <p>Celebrate with creativity and artistic expression! Whether it's painting, drawing, or crafting, art brings color and joy to any celebration. Create something beautiful to commemorate this special day. Every artist was first a beginner! 🖌️🎭</p>
+        </div>
+    </div>
+
+    <div id="gallery3" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('gallery3')">&times;</button>
+            <span class="modal-emoji">🎭</span>
+            <h2>Theater & Performance</h2>
+            <p>Celebrate with drama, comedy, and performances! Host a talent show, perform skits, or enjoy theatrical entertainment. Birthdays are the perfect stage to showcase talents and create memorable performances. The show must go on! 🎬🌟</p>
+        </div>
+    </div>
+
+    <div id="gallery4" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('gallery4')">&times;</button>
+            <span class="modal-emoji">🎬</span>
+            <h2>Movie Marathon</h2>
+            <p>Kick back and enjoy a birthday movie marathon! Gather favorite movies, prepare popcorn and snacks, and enjoy quality entertainment with loved ones. A movie night celebration is cozy, fun, and perfect for any age. Lights, camera, celebration! 🍿🎥</p>
+        </div>
+    </div>
+
+    <div id="gallery5" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('gallery5')">&times;</button>
+            <span class="modal-emoji">🎸</span>
+            <h2>Live Music</h2>
+            <p>Celebrate with the power of music! Whether it's a live band, DJ, karaoke, or acoustic performance, music sets the perfect mood for celebration. Every song tells a story, and your birthday is worth a great soundtrack. Let the music play! 🎶🎼</p>
+        </div>
+    </div>
+
+    <div id="gallery6" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('gallery6')">&times;</button>
+            <span class="modal-emoji">💃</span>
+            <h2>Dance Party</h2>
+            <p>Get ready to dance! Celebrate with energetic music, rhythmic movements, and pure joy. Whether it's a formal dance, party dancing, or just moving to the beat, dancing is the ultimate expression of celebration and happiness. Time to boogie! 🕺✨</p>
+        </div>
+    </div>
+
     <script>
-        // Particle System
-        function createParticles() {
-            const container = document.getElementById('particlesContainer');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                const x = Math.random() * window.innerWidth;
-                const y = Math.random() * window.innerHeight;
-                const duration = 4 + Math.random() * 4;
-                const delay = Math.random() * 2;
-                
-                particle.style.left = x + 'px';
-                particle.style.top = y + 'px';
-                particle.style.animation = `particleFloat ${duration}s ease-out ${delay}s infinite`;
-                
-                container.appendChild(particle);
-            }
-        }
-
-        // Confetti Effect
-        function launchConfetti() {
-            const duration = 3000;
-            const animationEnd = Date.now() + duration;
-            const defaults = { startVelocity: 45, spread: 360, ticks: 60, zIndex: 999 };
-
-            function randomInRange(min, max) {
-                return Math.random() * (max - min) + min;
-            }
-
-            const interval = setInterval(() => {
-                const timeLeft = animationEnd - Date.now();
-
-                if (timeLeft <= 0) {
-                    return clearInterval(interval);
-                }
-
-                const particleCount = 50 * (timeLeft / duration);
-                
-                for (let i = 0; i < particleCount; i++) {
-                    const x = Math.random() * window.innerWidth;
-                    const y = Math.random() * window.innerHeight;
-                    
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti-piece';
-                    confetti.style.left = x + 'px';
-                    confetti.style.top = y + 'px';
-                    
-                    const colors = ['#ff006e', '#8338ec', '#3a86ff', '#fb5607'];
-                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => confetti.remove(), 3000);
-                }
-            }, 250);
-        }
-
         // Countdown Timer
         function updateCountdown() {
-            // Set target date to user's next birthday (or a celebration date)
-            const now = new Date();
-            let targetDate = new Date(now.getFullYear(), 11, 25); // December 25 - adjust as needed
+            const targetDate = new Date('2025-12-31T23:59:59').getTime();
             
-            if (now > targetDate) {
-                targetDate = new Date(now.getFullYear() + 1, 11, 25);
-            }
-
             setInterval(() => {
-                const now = new Date();
-                const diff = targetDate - now;
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }, 1000);
-        }
-
-        // Music Player
-        let isPlaying = false;
-        let currentTrack = 0;
-        const tracks = [
-            'Happy Birthday',
-            'Celebration Mix',
-            'Party Time',
-            'Joy and Happiness'
-        ];
-
-        function togglePlayPause() {
-            isPlaying = !isPlaying;
-            const playBtn = document.getElementById('playBtn');
-            playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
-            
-            // Add visual feedback
-            playBtn.style.animation = 'pulse 0.5s ease-out';
-            setTimeout(() => {
-                playBtn.style.animation = '';
-            }, 500);
-        }
-
-        function nextTrack() {
-            currentTrack = (currentTrack + 1) % tracks.length;
-            document.getElementById('trackName').textContent = '🎵 ' + tracks[currentTrack];
-            isPlaying = true;
-            document.getElementById('playBtn').innerHTML = '<i class="fas fa-pause"></i>';
-        }
-
-        function previousTrack() {
-            currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
-            document.getElementById('trackName').textContent = '🎵 ' + tracks[currentTrack];
-            isPlaying = true;
-            document.getElementById('playBtn').innerHTML = '<i class="fas fa-pause"></i>';
-        }
-
-        function setVolume(value) {
-            // Volume control visualization
-            const volumeControl = document.getElementById('volumeControl');
-            const percentage = (value / 100) * 100;
-            volumeControl.style.background = `linear-gradient(to right, var(--primary) 0%, var(--primary) ${percentage}%, rgba(131, 56, 236, 0.3) ${percentage}%, rgba(131, 56, 236, 0.3) 100%)`;
-        }
-
-        // Wish Form
-        function submitWish(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('wishName').value;
-            const email = document.getElementById('wishEmail').value;
-            const message = document.getElementById('wishMessage').value;
-
-            // Store wish in localStorage
-            let wishes = JSON.parse(localStorage.getItem('birthdays_wishes')) || [];
-            wishes.push({ name, email, message, timestamp: new Date().toLocaleString() });
-            localStorage.setItem('birthdays_wishes', JSON.stringify(wishes));
-
-            // Show success message
-            const submitMessage = document.getElementById('wishSubmitted');
-            submitMessage.style.display = 'block';
-            submitMessage.style.animation = 'slideInUp 0.5s ease-out';
-
-            // Clear form
-            document.getElementById('wishForm').reset();
-
-            // Hide message after 3 seconds
-            setTimeout(() => {
-                submitMessage.style.display = 'none';
-            }, 3000);
-
-            // Add to wishes list
-            displayWishes();
-        }
-
-        function displayWishes() {
-            const wishesList = document.getElementById('wishesList');
-            const wishes = JSON.parse(localStorage.getItem('birthdays_wishes')) || [];
-            
-            wishesList.innerHTML = '<h4 style="margin: 30px 0 20px 0; color: var(--primary);">💝 Birthday Wishes (' + wishes.length + ')</h4>';
-            
-            wishes.reverse().forEach(wish => {
-                const wishItem = document.createElement('div');
-                wishItem.className = 'wish-item';
-                wishItem.innerHTML = `
-                    <div class="wish-name">✨ ${wish.name}</div>
-                    <div class="wish-text">"${wish.message}"</div>
-                    <small style="color: #666; margin-top: 8px; display: block;">${wish.timestamp}</small>
-                `;
-                wishesList.appendChild(wishItem);
-            });
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            updateCountdown();
-            displayWishes();
-            setVolume(70);
-            
-            // Add mouse movement particle effect
-            document.addEventListener('mousemove', (e) => {
-                if (Math.random() > 0.98) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = e.clientX + 'px';
-                    particle.style.top = e.clientY + 'px';
-                    particle.style.animation = `particleFloat 2s ease-out forwards`;
-                    document.getElementById('particlesContainer').appendChild(particle);
-                    
-                    setTimeout(() => particle.remove(), 2000);
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+                
+                if (distance < 0) {
+                    document.getElementById('days').innerText = '0';
+                    document.getElementById('hours').innerText = '0';
+                    document.getElementById('minutes').innerText = '0';
+                    document.getElementById('seconds').innerText = '0';
                 }
-            });
+            }, 1000);
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal when clicking outside the content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            }
         });
 
-        // Auto launch confetti on page load with delay
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                launchConfetti();
-            }, 1000);
-        });
+        // Initialize countdown on page load
+        window.addEventListener('load', updateCountdown);
     </script>
 </body>
 </html>
