@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lian's Birthday!</title>
+    <title>Lian's Birthday!!!</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background: linear-gradient(135deg, #232429ff 0%, #62576dff 25%, #3d0e42ff 50%, #273542ff 75%, #133f42ff 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
@@ -33,7 +33,7 @@
 
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
         }
 
         .header {
@@ -43,7 +43,7 @@
         }
 
         .title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: bold;
             color: white;
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -52,9 +52,8 @@
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
             animation: fadeInUp 1s ease-out;
         }
 
@@ -64,32 +63,19 @@
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-bottom: 50px;
         }
 
         .card {
@@ -99,127 +85,51 @@
             cursor: pointer;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out backwards;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
             border: 3px solid transparent;
         }
 
-        .card:nth-child(1) { animation-delay: 0.1s; border-color: #FF6B6B; }
-        .card:nth-child(2) { animation-delay: 0.2s; border-color: #4ECDC4; }
-        .card:nth-child(3) { animation-delay: 0.3s; border-color: #FFE66D; }
-        .card:nth-child(4) { animation-delay: 0.4s; border-color: #95E1D3; }
-        .card:nth-child(5) { animation-delay: 0.5s; border-color: #F38181; }
-        .card:nth-child(6) { animation-delay: 0.6s; border-color: #AA96DA; }
-        .card:nth-child(7) { animation-delay: 0.7s; border-color: #FCBAD3; }
-        .card:nth-child(8) { animation-delay: 0.8s; border-color: #A8E6CF; }
-        .card:nth-child(9) { animation-delay: 0.9s; border-color: #FFD3B6; }
-        .card:nth-child(10) { animation-delay: 1s; border-color: #FFAAA5; }
-        .card:nth-child(11) { animation-delay: 1.1s; border-color: #FF8B94; }
-        .card:nth-child(12) { animation-delay: 1.2s; border-color: #A8D8EA; }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
         .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
-        .card:hover::before {
-            opacity: 1;
-        }
+        .card:nth-child(1) { border-color: #FF6B6B; }
+        .card:nth-child(2) { border-color: #4ECDC4; }
+        .card:nth-child(3) { border-color: #FFE66D; }
 
-        .card-icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
-            display: inline-block;
-            animation: spin 3s linear infinite;
-        }
+        .card-icon { font-size: 3.5rem; margin-bottom: 15px; display: block; }
 
-        .card:nth-child(2) .card-icon,
-        .card:nth-child(4) .card-icon,
-        .card:nth-child(6) .card-icon,
-        .card:nth-child(8) .card-icon,
-        .card:nth-child(10) .card-icon,
-        .card:nth-child(12) .card-icon {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .card-description {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        /* Modal Styles */
+        
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: flex;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        .modal.active { display: flex; }
 
         .modal-content {
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.3s ease;
+            width: 100%;
+            max-width: 650px;
+            position: relative;
             max-height: 90vh;
             overflow-y: auto;
+            animation: slideUp 0.4s ease;
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-header {
@@ -227,259 +137,207 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-bottom: 3px solid #f0f0f0;
-            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
         }
 
-        .modal-title {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #333;
+        .close { font-size: 2rem; cursor: pointer; color: #888; }
+        .close:hover { color: #000; }
+
+    
+        .wish-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
         }
 
-        .close {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.3s ease;
+        .wish-item {
+            background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+            transition: transform 0.2s;
         }
 
-        .close:hover {
-            color: #000;
+        .wish-item:hover {
+            transform: scale(1.02);
         }
 
-        .modal-body {
-            margin: 20px 0;
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.1rem;
+        .wish-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
+     
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
             margin: 20px 0;
         }
 
         .gallery-item {
-            width: 100%;
             aspect-ratio: 1;
             border-radius: 10px;
+            cursor: pointer;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: scaleIn 0.4s ease;
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .gallery-placeholder {
-            width: 100%;
-            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 1.5rem;
             color: white;
+            transition: transform 0.2s;
         }
 
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #f0f;
-            pointer-events: none;
-            animation: confettiFall 3s ease-in forwards;
-        }
-
-        @keyframes confettiFall {
-            0% {
-                opacity: 1;
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
+        .gallery-item:hover { transform: scale(1.05); }
 
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
+            color: white; border: none; padding: 12px 25px;
+            border-radius: 25px; cursor: pointer; font-weight: bold;
+            width: 100%; margin-top: 20px;
+        }
+
+        
+        .story-container {
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .story-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
             font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 15px;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        .story-paragraph {
+            margin-bottom: 20px;
+            color: #555;
         }
 
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.5rem;
-            }
+        #detail-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            background: rgba(0,0,0,0.95);
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-            .subtitle {
-                font-size: 1.2rem;
-            }
+        #detail-image { max-width: 90%; max-height: 70vh; border-radius: 10px; }
+        #detail-description { color: white; margin-top: 20px; text-align: center; padding: 0 20px; }
+        .close-detail { position: absolute; top: 20px; right: 30px; font-size: 3rem; color: white; cursor: pointer; }
 
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+        .confetti {
+            position: fixed; width: 10px; height: 10px;
+            pointer-events: none; animation: confettiFall 3s linear forwards;
+            z-index: 3000;
+        }
 
-            .modal-content {
-                width: 95%;
-                padding: 25px;
-            }
+        @keyframes confettiFall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
         .floating-hearts {
-            position: fixed;
-            font-size: 2rem;
-            animation: float 6s ease-in infinite;
-            pointer-events: none;
+            position: fixed; font-size: 1.5rem; pointer-events: none;
+            animation: floatHeart 4s linear forwards; z-index: 500;
         }
 
-        @keyframes float {
-            0% {
-                opacity: 0;
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100px) rotate(360deg);
-            }
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="header">
-            <h1 class="title">🎉 Happy Birthday! 🎉</h1>
+            <h1 class="title">🎉 Happy Birthday Zalfaa! 🎉</h1>
             <p class="subtitle">Click on any card to explore the celebration!</p>
         </div>
 
         <div class="cards-grid">
-            <!-- Balloons Card -->
             <div class="card" data-modal="balloons-modal">
-                <div class="card-icon">🎈</div>
-                <h2 class="card-title">Balloons</h2>
-                <p class="card-description">Colorful balloons fill the air with joy and celebration!</p>
+                <span class="card-icon">🌟</span>
+                <h2 class="card-title">Wishes</h2>
+                <p class="card-description">Harapan terbaik untukmu di hari spesial ini!</p>
             </div>
 
-            <!-- Gifts Card -->
             <div class="card" data-modal="gifts-modal">
-                <div class="card-icon">🎁</div>
-                <h2 class="card-title">Gifts</h2>
+                <span class="card-icon">📸</span>
+                <h2 class="card-title">Memories</h2>
                 <p class="card-description">Wonderful surprises wrapped with love and care.</p>
             </div>
 
-            <!-- Cake Card -->
             <div class="card" data-modal="cake-modal">
-                <div class="card-icon">🎂</div>
-                <h2 class="card-title">Cake</h2>
+                <span class="card-icon">📖</span>
+                <h2 class="card-title">Storytelling</h2>
                 <p class="card-description">Delicious cake with wishes and sweet moments.</p>
-            </div>
-
-            <!-- Magic Card -->
-            <div class="card" data-modal="magic-modal">
-                <div class="card-icon">✨</div>
-                <h2 class="card-title">Magic</h2>
-                <p class="card-description">Special moments that feel like pure magic!</p>
-            </div>
-
-            <!-- Wishes Card -->
-            <div class="card" data-modal="wishes-modal">
-                <div class="card-icon">⭐</div>
-                <h2 class="card-title">Wishes</h2>
-                <p class="card-description">May all your dreams come true this year!</p>
-            </div>
-
-            <!-- Love Card -->
-            <div class="card" data-modal="love-modal">
-                <div class="card-icon">💕</div>
-                <h2 class="card-title">Love</h2>
-                <p class="card-description">Surrounded by love from everyone special.</p>
-            </div>
-
-            <!-- Party Card -->
-            <div class="card" data-modal="party-modal">
-                <div class="card-icon">🎊</div>
-                <h2 class="card-title">Party</h2>
-                <p class="card-description">Let's celebrate with music, dance, and fun!</p>
-            </div>
-
-           
-
-            <!-- Goals Card -->
-            <div class="card" data-modal="goals-modal">
-                <div class="card-icon">🎯</div>
-                <h2 class="card-title">Goals</h2>
-                <p class="card-description">Chase your dreams and achieve great things!</p>
-            </div>
-
-            <!-- Adventures Card -->
-            <div class="card" data-modal="adventures-modal">
-                <div class="card-icon">🚀</div>
-                <h2 class="card-title">Adventures</h2>
-                <p class="card-description">Exciting journeys and new experiences await!</p>
-            </div>
-
-            <!-- Champion Card -->
-            <div class="card" data-modal="champion-modal">
-                <div class="card-icon">👑</div>
-                <h2 class="card-title">Champion</h2>
-                <p class="card-description">You're the champion of your own story!</p>
             </div>
         </div>
     </div>
 
-    <!-- Modals -->
     <div id="balloons-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">🎈 Balloons</h2>
+                <h2 class="modal-title">🌟 Harapan untukmu 🌟</h2>
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Balloons symbolize the lightness and joy of your special day! Each balloon represents a happy memory and a moment of pure celebration. Float through the sky with endless possibilities and colorful dreams!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFB6B6);">🎈</div>
+                <div class="wish-list">
+                    <div class="wish-item">
+                        <span class="wish-icon">✨</span>
+                        <span>Semoga panjang umur, sehat selalu.</span>
                     </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4ECDC4, #9FFBF0);">🎈</div>
+                    <div class="wish-item">
+                        <span class="wish-icon">💪</span>
+                        <span>Semoga kekuatan dan semangat selalu menyertaimu menghadapi setiap tantangan.</span>
                     </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFE66D, #FFED4E);">🎈</div>
+                    <div class="wish-item">
+                        <span class="wish-icon">🎯</span>
+                        <span>Semoga semua cita-cita dan impian yang kamu miliki segera terwujud.</span>
                     </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #95E1D3, #F38181);">🎈</div>
+                    <div class="wish-item">
+                        <span class="wish-icon">💖</span>
+                        <span>Semoga selalu dikelilingi cinta, kasih sayang, dan teman-teman yang baik hati.</span>
+                    </div>
+                    <div class="wish-item">
+                        <span class="wish-icon">🌈</span>
+                        <span>Semoga tahun ini penuh dengan warna, petualangan, dan cerita indah baru.</span>
+                    </div>
+                    <div class="wish-item">
+                        <span class="wish-icon">🌟</span>
+                        <span>Semoga kesehatan selalu terjaga dan kebahagiaan tidak pernah meninggalkanmu.</span>
+                    </div>
+                    <div class="wish-item">
+                        <span class="wish-icon">🚀</span>
+                        <span>Semoga terus berkembang, belajar, dan menjadi versi terbaik dari dirimu.</span>
+                    </div>
+                    <div class="wish-item">
+                        <span class="wish-icon">💗</span>
+                        <span>Semoga hidup penuh dengan percikan keajaiban dan momen-momen berharga.</span>
                     </div>
                 </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
+                <button class="btn-primary" onclick="createConfetti()">🎉 Aamiin!</button>
             </div>
         </div>
     </div>
@@ -487,24 +345,17 @@
     <div id="gifts-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">🎁 Gifts</h2>
+                <h2 class="modal-title">🎁 Memories</h2>
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Every gift comes with a wish for your happiness! Wrapped with love and care, these presents represent the thoughtfulness of everyone who cares about you. Open your heart to receive all the blessings coming your way!</p>
+                <p>Setiap kenangan adalah hadiah berharga.</p>
                 <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FF8787);">🎁</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎁</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎁</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🎁</div>
-                    </div>
+                    <div class="gallery-item" data-img="https://picsum.photos/400/400?random=11" data-desc="Happy birthday to the kindest, prettiest, strongest girl that i have ever known!!" style="background: #AA96DA;">📸</div>
+                    <div class="gallery-item" data-img="https://picsum.photos/400/400?random=12" data-desc="Time flies, right? ga kerasa anak kecil lucu di sebelah kiri itu dah umur 21 ajaa😁" style="background: #FCBAD3;">📸</div>
+                    <div class="gallery-item" data-img="https://picsum.photos/400/400?random=13" data-desc="Kamu lucu banget sii. oiyaa anak2nya nonik dah segede apa merekaa?" style="background: #A8E6CF;">📸</div>
+                    <div class="gallery-item" data-img="https://picsum.photos/400/400?random=13" data-desc="Itu foto pertama kita bareng yaa. tau ga zal itu tanganku tremor waktu ngetik di laptop kamu😂 segrogi itu aku deket sama kamu😁" style="background: #A8E6CF;">📸</div>
+                    <div class="gallery-item" data-img="https://picsum.photos/400/400?random=13" data-desc="Itu waktu pembukaan pkl kemuh yaa? meskipun kamu bilang cape, panas, tpi kamu tetep dateng yaa... meskipun lagi cape kamu ttp gemesin banget sii zal" style="background: #A8E6CF;">📸</div>
                 </div>
                 <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
             </div>
@@ -514,304 +365,104 @@
     <div id="cake-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">🎂 Cake</h2>
+                <div class="story-title">
+                    💝 Storytelling 💝
+                </div>
                 <span class="close">&times;</span>
             </div>
-            <div class="modal-body">
-                <p>A delicious cake filled with sweetness and love! Make a wish, blow out the candles, and let your dreams come true. Each slice represents a moment of joy shared with the people you love most!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFE66D, #FFED4E);">🎂</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F38181, #AA96DA);">🎂</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FCBAD3, #A8E6CF);">🎂</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFD3B6, #FFAAA5);">🎂</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
+            <div class="story-container">
+                <p class="story-paragraph">
+                    Hai zalfaa.. gimana kabarnyaa? Dah lama kita ga ngobrol yaa. oiyaa, etp tahun ini gmnaa? anak2nya pada seru kh?? UFA kemarin gmna? happy?? aku nulis ini jam 01.43 a.m seperti biasa aku blm bisa tidur. kyaknya dari semenjak aku ngomong hal itu aku jadi sering kebangun tengah malem dan ga bisa tidur lgi. jujur selama 4 bulan ini terasa lama bgt. bo'ong kalo bilang aku ga ngrasain apa-apa setelah aku bilang itu. aku kecewa bgt sama diriku sendiri. maafin aku yaa zal... maaf juga selama 4 bulan terakhir ini aku ga ada buat kamu. makasih yaa udah lewatin semuanya sendiri. selama 4 bulan terakhir ini aku nyibukin diri buat baca beberapa buku, nyoba hal-hal baru.. oiya aku ikut projectnya pak purwo sama pak arga. tapi tetep aja ujung2nya mikirin kamu. kyak kamu hari ini ngapain aja, ada hal-hal yang seru ngga, pgn banget spend waktu sama-sama lagi. tapi aku sadar aku udah ngecewain kamu. maaf yaa zalfa
+                </p>
+                <p class="story-paragraph">
+                   Aku sadar dulu aku ga dewasa, egois, ga mikirin perasaan kamu, dan aku kurang komunikasi dalam segala hal. aku blajar dari itu semua dan aku akui aku yang salah. dulu aku mikirnya kalo setelah aku ngomong hal itu kita jarang atau bahkan ga chat rasa suka ku ke kamu lama2 bisa ilang. tapi  malah kebalikannya. aku jadi tambah suka sama kamu bahkan lebih suka daripada yang kurasain satu tahun lalu. my life with u is truly wonderful and i really miss u.
+                </p>
+                <p class="story-paragraph">
+                    Aku nyoba chat kamu lagi buat perbaikin semuanya, tapi kamu bilang yang intinya kamu udah ga peduli dan kamu udah sibuk sama yang lain. maksud kamu sibuk sama yang lain tu sama orang yg biasanya duo itu kh? tiap aku buka ml kamu selalu duo sama cwo itu. sampe akhirnya aku mutusin buat uninstall gamenya krn emang ga kuat liat kmu main sama dia🥲. kamu udah sama cwo itu kh? secepet itu ya zal🥲. selama 4 bulan ini aku tiap hari kangen kmu, mikirin kmu, ngepantesin diri buat kmu, can't u give me one more chance??
+                </p>
+                <p class="story-paragraph">
+                    Semangat UAS nya yaa zalfaa, sekali lagi Happy Birthday!!!!!
+                </p>
             </div>
+            <button class="btn-primary" onclick="createConfetti()">💖 Terima Kasih 💖</button>
         </div>
     </div>
 
-    <div id="magic-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">✨ Magic</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Magic happens when you celebrate with loved ones! The sparkle in your eyes, the warmth in your heart, and the wonder of a new year - these are the ingredients of true magic. Believe in the extraordinary!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">✨</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #f093fb, #f5576c);">✨</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">✨</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">✨</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="wishes-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">⭐ Wishes</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Upon a wish star, all dreams can come true! This year brings new opportunities, growth, and endless possibilities. Wish for health, happiness, success, and love - and work to make them all a reality!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFE66D, #FFAA44);">⭐</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFAA55);">⭐</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">⭐</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">⭐</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="love-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">💕 Love</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>You are surrounded by endless love from family, friends, and everyone who cares about you! Love is the greatest gift - it lifts you up, supports your dreams, and makes every moment meaningful. Feel the warmth of love today and always!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFB6B6);">💕</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F38181, #AA96DA);">💕</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FCBAD3, #FF8B94);">💕</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B9D, #FFC06C);">💕</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="party-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">🎊 Party</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Let's party like there's no tomorrow! Dance, laugh, sing, and enjoy every moment! The party is more fun when you're surrounded by people you love. Make memories, create laughter, and celebrate life to the fullest!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎊</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎊</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🎊</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🎊</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
-    </div>
-
-   
-    <div id="goals-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">🎯 Goals</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>This year, aim high and chase your dreams with passion! Every goal is achievable with determination, focus, and belief in yourself. Whether big or small, each goal brings you closer to becoming the best version of yourself!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">🎯</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎯</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🎯</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🎯</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="adventures-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">🚀 Adventures</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Adventure awaits around every corner! Explore new places, meet new people, and embrace new experiences with open arms. Life is an adventure - make it thrilling, memorable, and absolutely unforgettable!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">🚀</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">🚀</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4FACFE, #00F2FE);">🚀</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43E97B, #38F9D7);">🚀</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="champion-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">👑 Champion</h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>You are a champion in your own right! Every challenge you've overcome, every goal you've achieved, and every person you've helped makes you a true winner. Wear your crown proudly and celebrate your victories!</p>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FFD700, #FFA500);">👑</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">👑</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">👑</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder" style="background: linear-gradient(135deg, #F093FB, #F5576C);">👑</div>
-                    </div>
-                </div>
-                <button class="btn-primary" onclick="createConfetti()">🎉 Celebrate!</button>
-            </div>
-        </div>
+    <div id="detail-modal">
+        <span class="close-detail">&times;</span>
+        <img id="detail-image" src="" alt="Detail">
+        <p id="detail-description"></p>
     </div>
 
     <script>
-        // Get all modal elements
-        const modals = document.querySelectorAll('.modal');
-        const cards = document.querySelectorAll('.card');
-        const closeButtons = document.querySelectorAll('.close');
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            const closeButtons = document.querySelectorAll('.close');
 
-        // Open modal when card is clicked
-        cards.forEach(card => {
-            card.addEventListener('click', function() {
-                const modalId = this.getAttribute('data-modal');
-                const modal = document.getElementById(modalId);
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const modalId = card.getAttribute('data-modal');
+                    document.getElementById(modalId).classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
             });
-        });
 
-        // Close modal when close button is clicked
-        closeButtons.forEach(closeBtn => {
-            closeBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const modal = this.closest('.modal');
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close modal when clicking outside modal content
-        modals.forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                modals.forEach(modal => {
-                    modal.classList.remove('active');
+            
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.closest('.modal').classList.remove('active');
                     document.body.style.overflow = 'auto';
                 });
-            }
+            });
+
+           
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const detailModal = document.getElementById('detail-modal');
+            const detailImg = document.getElementById('detail-image');
+            const detailDesc = document.getElementById('detail-description');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const imgSrc = item.getAttribute('data-img');
+                    const descText = item.getAttribute('data-desc');
+                    
+                    if(imgSrc) {
+                        detailImg.src = imgSrc;
+                        detailDesc.innerText = descText;
+                        detailModal.style.display = 'flex';
+                    }
+                });
+            });
+
+            document.querySelector('.close-detail').addEventListener('click', () => {
+                detailModal.style.display = 'none';
+            });
+
+
+            window.createConfetti = function() {
+                const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#AA96DA'];
+                for (let i = 0; i < 40; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = confetti.style.width;
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+            };
+
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-hearts';
+                heart.innerText = ['❤️', '💖', '✨', '🌸'][Math.floor(Math.random() * 4)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }, 1000);
         });
-
-        // Confetti effect
-        function createConfetti() {
-            const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8E6CF', '#FFD3B6', '#FFAAA5', '#FF8B94', '#A8D8EA'];
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = '-10px';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.delay = Math.random() * 0.3 + 's';
-                document.body.appendChild(confetti);
-                
-                setTimeout(() => confetti.remove(), 3300);
-            }
-        }
-
-        // Create floating hearts periodically
-        function createFloatingHeart() {
-            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
-            const heart = document.createElement('div');
-            heart.className = 'floating-hearts';
-            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.top = window.innerHeight + 'px';
-            heart.style.animationDelay = '0s';
-            document.body.appendChild(heart);
-            
-            setTimeout(() => heart.remove(), 6000);
-        }
-
-        // Create floating hearts every 2 seconds
-        setInterval(createFloatingHeart, 2000);
-
-        // Add initial floating hearts
-        for (let i = 0; i < 3; i++) {
-            setTimeout(() => createFloatingHeart(), i * 600);
-        }
     </script>
 </body>
 </html>
